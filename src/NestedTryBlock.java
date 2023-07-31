@@ -1,17 +1,17 @@
 public class NestedTryBlock {
     public static void main(String[] args) {
         /*Nested try block*/
-        try{
-            try{
-                int data = 100/0;
-            }
-            catch (ArithmeticException arithmeticException){
-                System.out.println(arithmeticException.getLocalizedMessage());
-            }
-        }
-        catch (Exception e){
-            System.out.println(e.getLocalizedMessage());
-        }
+//        try{
+//            try{
+//                int data = 100/0;
+//            }
+//            catch (ArithmeticException arithmeticException){
+//                System.out.println(arithmeticException.getLocalizedMessage());
+//            }
+//        }
+//        catch (Exception e){
+//            System.out.println(e.getLocalizedMessage());
+//        }
 
         /*Nested try block if exception is not found in the child then very until last parent if not found
         * then jvm will give localized exception
@@ -19,21 +19,25 @@ public class NestedTryBlock {
 
 
         try{
+            int d = 10/0;
+
             try{
+                String s = null;
+                System.out.println(s.length());
                 try{
-                    int[] data = new int[5];
-                    data[6] =5;
+                    String t = null;
+                    System.out.println(t.length());
                 }
-                catch (NullPointerException nullPointerException){
-                    System.out.println(nullPointerException.getLocalizedMessage());
+                catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException){
+                    System.out.println("arthematic zero");
                 }
             }
-            catch (StackOverflowError stackOverflowError){
-                System.out.println("stack overflow error");
+            catch (NullPointerException nullPointerException){
+                System.out.println("null pointer");
             }
         }
-        catch (Exception e){
-            e.printStackTrace();
+        catch (ArithmeticException e){
+            System.out.print("divide by zero");
         }
 
     }
